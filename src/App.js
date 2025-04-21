@@ -34,10 +34,11 @@ const App = () => {
   const progressIntervalRef = useRef(null);
 
   // Constants
-  const ELEVEN_LABS_API_KEY = process.env.ELEVEN_LABS_API_KEY;
-  const ELEVEN_LABS_VOICE_ID = process.env.ELEVEN_LABS_VOICE_ID;
-  const BACKEND_WEB_SOCKET = process.env.BACKEND_WEB_SOCKET;
-  const BACKEND_SERVER_URL = process.env.BACKEND_SERVER_URL;
+  const ELEVEN_LABS_API_KEY =
+    "sk_2df18c6501727bf909af532bf3519dfe98eb504ed57106a2";
+  const ELEVEN_LABS_VOICE_ID = "JBFqnCBsd6RMkjVDRZzb";
+  const BACKEND_WEB_SOCKET = "ws://144.24.102.78:3000";
+  const BACKEND_SERVER_URL = "http://144.24.102.78:3000/";
 
   useEffect(() => {
     if (chatHistoryRef.current) {
