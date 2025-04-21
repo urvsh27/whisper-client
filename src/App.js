@@ -425,11 +425,6 @@ const App = () => {
             <p>Premium AI Voice Assistant</p>
           </div>
 
-          <div className="status fade-in">
-            <div className={`status-indicator ${status.type}`}></div>
-            <span>{status.text}</span>
-          </div>
-
           <div className="chat-container fade-in">
             <div className="chat-history" ref={chatHistoryRef}>
               {messages.map((message, index) => (
@@ -458,6 +453,11 @@ const App = () => {
 
             <div className="progress-bar">
               <div className="progress" style={{ width: `${progress}%` }}></div>
+            </div>
+
+            <div className="status fade-in">
+              <div className={`status-indicator ${status.type}`}></div>
+              <span>{status.text}</span>
             </div>
 
             <button
