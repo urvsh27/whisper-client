@@ -37,6 +37,7 @@ const App = () => {
   const ELEVEN_LABS_API_KEY = process.env.ELEVEN_LABS_API_KEY;
   const ELEVEN_LABS_VOICE_ID = process.env.ELEVEN_LABS_VOICE_ID;
   const BACKEND_WEB_SOCKET = process.env.BACKEND_WEB_SOCKET;
+  const BACKEND_SERVER_URL = process.env.BACKEND_SERVER_URL;
 
   useEffect(() => {
     if (chatHistoryRef.current) {
@@ -65,7 +66,7 @@ const App = () => {
 
   const startChat = async () => {
     try {
-      const response = await fetch("http://localhost:4001/get-token");
+      const response = await fetch(BACKEND_SERVER_URL + "get-token");
       if (!response.ok) {
         throw new Error("Failed to get access token");
       }
@@ -101,7 +102,7 @@ const App = () => {
   };
 
   const initWebSocket = () => {
-    webSocketRef.current = new WebSocket("");
+    webSocketRef.current = new WebSocket(BACKEND_WEB_SOCKET);
 
     webSocketRef.current.onopen = () => {
       console.log("WebSocket connection established");
@@ -265,7 +266,7 @@ const App = () => {
       const reader = new FileReader();
 
       reader.onload = () => {
-        const base64Audio = reader.result.split(",")[1]; 
+        const base64Audio = reader.result.split(",")[1];
 
         if (
           webSocketRef.current &&
@@ -336,14 +337,14 @@ const App = () => {
           text: "Ready to chat. Click the button to speak.",
           type: "success",
         });
-        setAiSpeaking(false); 
+        setAiSpeaking(false);
       };
 
       audio.play();
     } catch (error) {
       console.error("Error generating voice:", error);
       setStatus({ text: "Error generating voice. Try again.", type: "error" });
-      setAiSpeaking(false); 
+      setAiSpeaking(false);
     }
   };
 
