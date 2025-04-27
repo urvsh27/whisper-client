@@ -37,7 +37,7 @@ const App = () => {
   const ELEVEN_LABS_API_KEY =
     "sk_2df18c6501727bf909af532bf3519dfe98eb504ed57106a2";
   const ELEVEN_LABS_VOICE_ID = "JBFqnCBsd6RMkjVDRZzb";
-  const BACKEND_WEB_SOCKET = "ws://https://80.225.223.153/api/";
+  const BACKEND_WEB_SOCKET = "ws://80.225.223.153/api/";
   const BACKEND_SERVER_URL = "https://80.225.223.153/api/";
 
   useEffect(() => {
