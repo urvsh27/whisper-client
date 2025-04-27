@@ -37,8 +37,11 @@ const App = () => {
   const ELEVEN_LABS_API_KEY =
     "sk_2df18c6501727bf909af532bf3519dfe98eb504ed57106a2";
   const ELEVEN_LABS_VOICE_ID = "JBFqnCBsd6RMkjVDRZzb";
-  const BACKEND_WEB_SOCKET = "wss://80.225.223.153/api/";
-  const BACKEND_SERVER_URL = "https://80.225.223.153/api/";
+  // const BACKEND_WEB_SOCKET = "wss://80.225.223.153/api/";
+  // const BACKEND_SERVER_URL = "https://80.225.223.153/api/";
+
+  const BACKEND_WEB_SOCKET = "ws:/localhost:4001/";
+  const BACKEND_SERVER_URL = "http://localhost:4001/";
 
   useEffect(() => {
     if (chatHistoryRef.current) {
@@ -467,18 +470,20 @@ const App = () => {
               <FontAwesomeIcon icon={isRecording ? faStop : faMicrophone} />
             </button> */}
 
-            <button
-              className={`record-button ${isRecording ? "recording" : ""}`}
-              onClick={toggleRecording}
-              style={{
-                display:
-                  aiSpeaking || status.text === "Processing your audio..."
-                    ? "none"
-                    : "inline-block",
-              }}
-            >
-              <FontAwesomeIcon icon={isRecording ? faStop : faMicrophone} />
-            </button>
+            <div className="record-button-container">
+              <button
+                className={`record-button ${isRecording ? "recording" : ""}`}
+                onClick={toggleRecording}
+                style={{
+                  display:
+                    aiSpeaking || status.text === "Processing your audio..."
+                      ? "none"
+                      : "inline-block",
+                }}
+              >
+                <FontAwesomeIcon icon={isRecording ? faStop : faMicrophone} />
+              </button>
+            </div>
 
             <p className="status">
               Click the button to speak, click again to stop
